@@ -1,0 +1,21 @@
+{% extends 'gestion/base.html' %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h2>Eliminar Préstamo</h2>
+    </div>
+    <div class="card-body">
+        <p>¿Estás seguro de que deseas eliminar el préstamo <strong>#{{ prestamo.id_Prestamos }}</strong>?</p>
+        <p><strong>Usuario:</strong> {{ prestamo.usuarios_id_usuarios.nombres }}</p>
+        <p><strong>Libro:</strong> {{ prestamo.Libros_id_Libros.titulo }}</p>
+        <p><strong>Fecha:</strong> {{ prestamo.fecha }}</p>
+        <p class="text-danger">Esta acción no se puede deshacer.</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+            <a href="{% url 'lista_prestamos' %}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

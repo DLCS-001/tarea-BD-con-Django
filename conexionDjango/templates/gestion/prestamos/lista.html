@@ -1,0 +1,41 @@
+{% extends 'gestion/base.html' %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h2>Lista de Préstamos</h2>
+        <a href="{% url 'crear_prestamo' %}" class="btn btn-primary">Nuevo Préstamo</a>
+    </div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Fecha</th>
+                    <th>Usuario</th>
+                    <th>Libro</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for prestamo in prestamos %}
+                <tr>
+                    <td>{{ prestamo.id_Prestamos }}</td>
+                    <td>{{ prestamo.fecha }}</td>
+                    <td>{{ prestamo.usuarios_id_usuarios.nombres }}</td>
+                    <td>{{ prestamo.Libros_id_Libros.titulo }}</td>
+                    <td>
+                        <a href="{% url 'editar_prestamo' prestamo.id_Prestamos %}" class="btn btn-sm btn-warning">Editar</a>
+                        <a href="{% url 'eliminar_prestamo' prestamo.id_Prestamos %}" class="btn btn-sm btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5" class="text-center">No hay préstamos registrados</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

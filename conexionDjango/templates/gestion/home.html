@@ -1,0 +1,62 @@
+{% extends 'gestion/base.html' %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">¡Bienvenido al Sistema de Biblioteca!</h1>
+    <p class="lead">Selecciona una opción del menú para comenzar a gestionar.</p>
+    <hr class="my-4">
+    <p>Puedes administrar usuarios, autores, categorías, libros y préstamos.</p>
+
+    <div class="row mt-4">
+        <div class="col-md-4 mb-3">
+            <div class="card text-white bg-primary">
+                <div class="card-body">
+                    <h5 class="card-title">Usuarios</h5>
+                    <p class="card-text">Gestiona los usuarios de la biblioteca</p>
+                    <a href="{% url 'lista_usuarios' %}" class="btn btn-light">Ir a Usuarios</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card text-white bg-success">
+                <div class="card-body">
+                    <h5 class="card-title">Autores</h5>
+                    <p class="card-text">Gestiona los autores de los libros</p>
+                    <a href="{% url 'lista_autores' %}" class="btn btn-light">Ir a Autores</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card text-white bg-warning">
+                <div class="card-body">
+                    <h5 class="card-title">Categorías</h5>
+                    <p class="card-text">Gestiona las categorías de libros</p>
+                    <a href="{% url 'lista_categorias' %}" class="btn btn-light">Ir a Categorías</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card text-white bg-info">
+                <div class="card-body">
+                    <h5 class="card-title">Libros</h5>
+                    <p class="card-text">Gestiona el catálogo de libros</p>
+                    <a href="{% url 'lista_libros' %}" class="btn btn-light">Ir a Libros</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+            <div class="card text-white bg-danger">
+                <div class="card-body">
+                    <h5 class="card-title">Préstamos</h5>
+                    <p class="card-text">Gestiona los préstamos de libros</p>
+                    <a href="{% url 'lista_prestamos' %}" class="btn btn-light">Ir a Préstamos</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
